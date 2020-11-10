@@ -4,4 +4,5 @@ group :test do
   gem 'rspec'
   gem 'capybara'
   gem 'sinatra'
+  gem 'selenium-webdriver'
 end
