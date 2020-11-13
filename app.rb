@@ -24,13 +24,19 @@ class Battle < Sinatra::Base
 
   get '/play' do
     @game = $game
+    redirect '/game_over' if @game.game_over?
     erb :play
   end
 
   get '/attack' do
     @game = $game
-    @game.pimp_slap(@game.player_2)
+    @game.pimp_slap
     erb :attack
+  end
+
+  get '/game_over' do
+    @game = $game
+    erb :game_over
   end
   # start the server if ruby file executed directly
   run! if app_file == $0
